@@ -1,0 +1,3 @@
+#!/bin/sh
+
+sudo bpftrace -e "tracepoint:kmem:kmalloc /comm == \"$1\"/ { printf(\"%s: %p\n\", comm,  args.ptr ) }"
